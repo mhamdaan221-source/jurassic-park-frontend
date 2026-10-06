@@ -1,0 +1,176 @@
+/* Jurassic dashboard: landscape theme, mission canvas, tall clock, expandable strip. */
+body { background: #91ad88; isolation: isolate; }
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(ellipse at 50% 15%, rgba(221, 234, 201, .65), transparent 70%),
+    url('assets/leaf-texture.svg') left top / 460px 460px repeat-y,
+    url('assets/leaf-texture.svg') right 180px / 460px 460px repeat-y,
+    linear-gradient(155deg, #aec5a0, #88a681 70%, #9cb68c);
+  pointer-events: none;
+}
+main { background: transparent; }
+.site-header { background: rgba(15, 43, 32, .94); backdrop-filter: blur(10px); }
+.preview-note { background: rgba(13, 36, 28, .9); border-color: rgba(209, 238, 180, .2); }
+footer { background: rgba(10, 30, 23, .9); color: #cfdbc6; }
+.bento-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2.1fr) minmax(320px, 1fr);
+  grid-template-areas: "theme clock" "mission clock" "wheel wheel";
+  gap: 16px;
+  padding: 22px var(--page-gutter) 32px;
+}
+.bento-grid > * { min-width: 0; }
+.theme-panel {
+  grid-area: theme;
+  position: relative;
+  overflow: hidden;
+  min-height: 340px;
+  border: 1px solid rgba(217, 241, 207, .3);
+  border-radius: 28px 28px 8px 28px;
+  background: linear-gradient(115deg, rgba(27, 67, 44, .95), rgba(37, 81, 49, .86));
+  backdrop-filter: blur(3px);
+  box-shadow: inset 0 1px 0 rgba(241, 249, 204, .16), 0 18px 40px #06180f40;
+}
+.theme-art {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 90% 60%, rgba(233, 183, 65, .2), transparent 50%);
+}
+.theme-copy { position: relative; z-index: 1; padding: 28px 32px; width: 66%; }
+.theme-copy h1 {
+  font: 800 clamp(34px, 3.5vw, 62px)/1 'Barlow Condensed', sans-serif;
+  letter-spacing: -.015em;
+  margin: 20px 0 10px;
+}
+.theme-copy h1 span { color: #e9c967; }
+.welcome-eyebrow { color: #d4e9aa; font-size: 10px; }
+.welcome-dino { position: absolute; right: 0; bottom: 0; width: 43%; height: 94%; object-fit: contain; object-position: right bottom; filter: drop-shadow(0 18px 14px #081b1766); transform-origin: 65% 90%; animation: welcome-rock 7s ease-in-out infinite; pointer-events: none; }
+.team-pass { display: flex; gap: 0; width: fit-content; max-width: 100%; margin: 22px 0 0; border: 1px solid #dbe4a94d; border-radius: 12px; background: #102c249c; overflow: hidden; }
+.team-pass > div { padding: 12px 20px; }
+.team-pass .team-id { background: #e9c967; color: #172d22; min-width: 85px; }
+.team-pass dt { font: 9px 'Space Mono', monospace; letter-spacing: .1em; }
+.team-pass dd { margin: 5px 0 0; font: 700 25px/1 'Barlow Condensed', sans-serif; }
+.team-theme dd { color: #dcf3b0; }
+.theme-tagline { margin: 0; font-size: 18px; color: #f0f5e8; }
+.theme-stamp {
+  display: inline-block;
+  margin-top: 22px;
+  font: 9px 'Space Mono', monospace;
+  letter-spacing: .16em;
+  color: #d0dfc9;
+}
+.theme-stamp span { margin: 0 8px; color: var(--orange); }
+.bento-grid .mission-panel {
+  grid-area: mission;
+  min-height: 320px;
+  border-radius: 8px 32px 32px 32px;
+  scroll-margin-top: 20px;
+  background: rgba(18, 47, 34, .9);
+  backdrop-filter: blur(3px);
+}
+.bento-grid .mission-content { min-height: 320px; padding: 26px 32px; }
+.bento-grid .mission-art {
+  background:
+    linear-gradient(90deg, rgba(18, 43, 29, .85) 0%, rgba(18, 43, 29, .62) 34%, rgba(18, 43, 29, .06) 72%),
+    url('assets/triceratops-mission-amber.png') right center / auto 100% no-repeat,
+    transparent;
+}
+.bento-grid .mission-main { max-width: 600px; padding: 16px 0 0; }
+.bento-grid .mission-main h2 { font-size: clamp(48px, 4vw, 68px); }
+.bento-grid .mission-main p { max-width: 480px; margin-bottom: 0; }
+.bento-grid .timer-panel {
+  --orange: #ff4141;
+  grid-area: clock;
+  border-radius: 36px 8px 36px 8px;
+  min-height: 0;
+  padding: 30px;
+  background: linear-gradient(150deg, rgba(38, 77, 52, .92), rgba(12, 42, 33, .9));
+  backdrop-filter: blur(3px);
+  box-shadow: inset 0 1px 0 #e9f5cd22, 0 18px 40px #06180f40;
+}
+.bento-grid .timer-lead { margin-top: 54px; font-size: 24px; }
+.bento-grid .timer-readout { font-size: clamp(86px, 7.5vw, 132px); margin: 12px 0; }
+.bento-grid .timer-caption { margin: 24px 0; }
+.bento-grid .verification-preview { margin-top: auto; margin-bottom: 18px; }
+.bento-grid .buzzer { margin-top: 0; border-radius: 12px; }
+.bento-grid .buzzer:hover:not(:disabled) { background: #ff5c56; }
+.bento-grid .buzzer.is-pressed:not(:disabled) { background: #ffd166; color: #23130e; transform: translateY(1px) scale(.985); box-shadow: 0 0 20px #ffd16655; }
+.bento-grid .timer-pulse { box-shadow: 0 0 0 5px rgba(255, 65, 65, .18); }
+.bento-grid .buzzer-help { color: #c0d0bc; }
+.bento-grid .wheel-section { grid-area: wheel; padding: 0; }
+.bento-grid .wheel-disclosure { border-radius: 20px 40px 20px 8px; overflow: hidden; background: linear-gradient(100deg, rgba(25, 62, 44, .94), rgba(21, 57, 48, .88)); backdrop-filter: blur(3px); }
+.bento-grid .wheel-disclosure summary { min-height: 124px; padding: 22px 30px; }
+.bento-grid .wheel-summary-copy strong { font-size: 42px; }
+.bento-grid .wheel-summary-action { border-radius: 50%; flex: none; }
+.bento-grid .wheel-content { grid-template-columns: minmax(0, 1fr) minmax(0, .8fr); }
+@media (max-width: 1050px) {
+  .bento-grid { grid-template-columns: minmax(0, 1.7fr) minmax(290px, 1fr); }
+  .theme-copy, .bento-grid .mission-content { padding: 24px; }
+  .theme-copy h1 { max-width: none; }
+  .bento-grid .timer-panel { padding: 24px; }
+  .bento-grid .mission-main p { max-width: 380px; }
+}
+@media (max-width: 800px) {
+  .bento-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "theme" "mission" "clock" "wheel"; }
+  .theme-copy h1 { max-width: none; font-size: clamp(32px, 5.5vw, 48px); }
+  .bento-grid .timer-panel { min-height: 390px; }
+  .bento-grid .timer-lead { margin-top: 28px; }
+  .bento-grid .timer-readout { font-size: 96px; }
+  .bento-grid .wheel-content { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 540px) {
+  .bento-grid { padding: 16px 14px 24px; gap: 12px; }
+  .theme-panel { min-height: 460px; }
+  .theme-copy { padding: 24px 20px 190px; width: 100%; }
+  .theme-copy h1 { max-width: 100%; font-size: 36px; }
+  .welcome-dino { height: 200px; width: 75%; right: 0; opacity: 1; }
+  .team-pass { max-width: 100%; }
+  .team-pass > div { padding: 12px; }
+  .team-pass dd { font-size: 21px; }
+  .team-pass .team-id { min-width: 60px; }
+  .theme-stamp { max-width: 55%; font-size: 8px; line-height: 1.6; }
+  .theme-tagline { font-size: 16px; }
+  .bento-grid .mission-content { padding: 22px 20px; }
+  .bento-grid .mission-panel, .bento-grid .mission-content { min-height: 350px; }
+  .bento-grid .mission-art {
+    background:
+      linear-gradient(90deg, rgba(18, 43, 29, .94), rgba(18, 43, 29, .55) 75%),
+      url('assets/triceratops-mission-amber.png') right bottom / auto 80% no-repeat,
+      #122b1d;
+  }
+  .bento-grid .section-heading { flex-wrap: wrap; }
+  .bento-grid .mission-main h2 { font-size: clamp(46px, 11vw, 58px); }
+  .bento-grid .wheel-disclosure summary { padding: 20px 16px; gap: 12px; }
+  .bento-grid .wheel-summary-copy strong { font-size: 30px; }
+  .bento-grid .wheel-summary-icon { width: 36px; height: 36px; }
+}
+
+/* Slow ambient motion, with no flashing or interference with the controls. */
+.island-atmosphere { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.island-atmosphere i { position: absolute; width: 4px; height: 4px; border-radius: 50%; background: #e7d66c; box-shadow: 0 0 12px 4px #d9ef6240; left: 10%; top: 70%; animation: firefly-drift 14s ease-in-out infinite; }
+.island-atmosphere i:nth-child(2) { left: 31%; top: 24%; animation-delay: -4s; }
+.island-atmosphere i:nth-child(3) { left: 54%; top: 85%; animation-delay: -8s; }
+.island-atmosphere i:nth-child(4) { left: 73%; top: 40%; animation-delay: -2s; }
+.island-atmosphere i:nth-child(5) { left: 88%; top: 72%; animation-delay: -10s; }
+.island-atmosphere i:nth-child(6) { left: 94%; top: 14%; animation-delay: -6s; }
+.bento-grid > * { animation: panel-arrive .7s ease-out both; }
+.bento-grid .mission-panel { animation-delay: .1s; }
+.bento-grid .timer-panel { animation-delay: .18s; }
+.bento-grid .wheel-section { animation-delay: .25s; }
+.bento-grid .buzzer { box-shadow: 0 5px 22px #ff414133; }
+.bento-grid .wheel-disclosure summary { transition: background .25s ease; }
+.bento-grid .wheel-disclosure summary:hover { background: #dff4a210; }
+@keyframes panel-arrive { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes welcome-rock { 0%, 100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-5px) rotate(1deg); } }
+@keyframes firefly-drift { 0%, 100% { opacity: .2; transform: translate(0, 0); } 50% { opacity: .75; transform: translate(24px, -36px); } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .bento-grid > *, .welcome-dino, .island-atmosphere i { animation: none; }
+  .island-atmosphere { display: none; }
+  .bento-grid .buzzer { transition: none; }
+  .bento-grid .buzzer.is-pressed:not(:disabled) { transform: none; }
+}

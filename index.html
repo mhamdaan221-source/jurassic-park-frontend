@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#162b20">
+  <meta name="description" content="Wheel of Fortune 4-Spin Game Challenge — Jurassic Park team dashboard.">
+  <title>Wheel of Fortune | Jurassic Park Challenge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="poster-art.css">
+  <link rel="stylesheet" href="glass.css">
+  <link rel="stylesheet" href="wheel.css">
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="dino-pet.css">
+</head>
+<body>
+  <div class="island-atmosphere" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Wheel of Fortune home">
+        <span class="brand-wheel" aria-hidden="true"><span>W</span></span>
+        <span class="brand-name">WHEEL OF <strong>FORTUNE</strong><small>THE 4-SPIN CHALLENGE</small></span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#mission">MISSION</a><a href="#wheel">THE WHEEL</a>
+      </nav>
+      <div class="header-team"><span class="status-dot" aria-hidden="true"></span><span>TEAM <span data-team-id>08</span></span><b>JP</b></div>
+    </header>
+
+    <main id="top">
+      <div class="preview-note" role="note">UI preview · competition data is sample only</div>
+      <div class="bento-grid">
+        <section class="theme-panel" aria-labelledby="theme-heading">
+          <div class="theme-art" aria-hidden="true"></div>
+          <img class="welcome-dino" src="assets/trex-welcome-red.png" alt="Red T. rex roaring, illustrated in bold black ink" width="1536" height="1024">
+          <div class="theme-copy">
+            <span class="section-index welcome-eyebrow">ISLA NUBLAR / TEAM CHECK-IN</span>
+            <h1 id="theme-heading">WELCOME TO THE PARK,<br><span data-team-name>UMBRELLA</span><span>.</span></h1>
+            <p class="theme-tagline">Hold on to your butts.</p>
+            <dl class="team-pass">
+              <div class="team-id"><dt>TEAM ID</dt><dd data-team-id>08</dd></div>
+              <div class="team-theme"><dt>ASSIGNED THEME</dt><dd>JURASSIC PARK</dd></div>
+            </dl>
+            <span class="theme-stamp">YOUR ADVENTURE STARTS HERE <span aria-hidden="true">↗</span></span>
+          </div>
+        </section>
+        <article class="mission-panel" id="mission" aria-labelledby="mission-heading">
+          <div class="mission-art" role="img" aria-label="Amber triceratops among green jungle foliage"></div>
+          <div class="mission-content">
+            <div class="section-heading"><span class="section-index">01 / THE MISSION</span><span class="active-pill"><span class="status-dot"></span> SPIN 02 ACTIVE</span></div>
+            <div class="mission-main">
+              <span class="eyebrow">GAME MODIFICATION</span>
+              <h2 id="mission-heading">RESHAPE YOUR<br><span>WORLD.</span></h2>
+              <p>Transform your game environment to match your Jurassic Park theme. Make the island feel alive through atmosphere, visuals, and interaction.</p>
+            </div>
+          </div>
+        </article>
+
+        <aside class="timer-panel" aria-labelledby="timer-heading">
+          <div class="section-heading"><span class="section-index" id="timer-heading">02 / THE CLOCK</span><span class="timer-pulse" aria-hidden="true"></span></div>
+          <p class="timer-lead">SPIN TIME<br>REMAINING</p>
+          <div class="timer-readout" id="timer" role="timer" aria-label="18 minutes 42 seconds"><span id="minutes">18</span><span class="colon">:</span><span id="seconds">42</span></div>
+          <div class="timer-track"><div id="timer-progress"></div></div>
+          <p class="timer-caption">When your build is ready, hit the buzzer for verification.</p>
+          <div class="verification-preview" aria-label="Verification status"><span>VERIFICATION</span><strong>NOT SUBMITTED</strong></div>
+          <button class="buzzer" id="buzzer" type="button"><span class="buzzer-mark">!</span><span id="buzzer-text">HIT THE BUZZER</span><span aria-hidden="true">↗</span></button>
+          <p class="buzzer-help" id="buzzer-help" aria-live="polite">Preview only · no request will be sent</p>
+        </aside>
+      <section class="wheel-section" id="wheel" aria-labelledby="wheel-heading">
+        <div class="pet-habitat" id="pet-habitat" aria-label="Little Fern's dinosaur habitat">
+          <span class="pet-hint" id="pet-hint">A little adventure is hatching…</span>
+          <div class="pet-ground" aria-hidden="true"></div>
+          <button class="dino-pet" id="dino-pet" type="button" data-state="waiting" aria-label="Pet Fern, the baby long-neck dinosaur">
+            <span class="pet-affection" aria-hidden="true">♥</span>
+            <span class="pet-snooze" aria-hidden="true">z z Z</span>
+            <span class="pet-art" aria-hidden="true">
+              <span class="pet-facing"><span class="pet-sprite"></span></span>
+              <span class="pet-egg"></span>
+            </span>
+          </button>
+          <button class="pet-pause" id="pet-pause" type="button" aria-pressed="false" aria-label="Pause dinosaur animations">Ⅱ</button>
+        </div>
+        <details class="wheel-disclosure">
+          <summary>
+            <span class="wheel-summary-icon" aria-hidden="true">✦</span>
+            <span class="wheel-summary-copy"><span class="section-index">03 / WHEEL OF FORTUNE</span><strong id="wheel-heading">REVEAL THE WHEEL</strong><small>Tap to reveal the wheel · Question 1, 2, or 3.</small></span>
+            <span class="wheel-summary-action" aria-hidden="true"></span>
+          </summary>
+          <div class="wheel-content">
+            <div class="wheel-wrap">
+              <span class="wheel-pointer" aria-hidden="true"></span>
+              <div class="challenge-wheel" role="img" aria-label="Three equal sections: Question 1, Question 2, and Question 3">
+                <span class="wheel-label wheel-label-1"><b>QUESTION 1</b></span>
+                <span class="wheel-label wheel-label-2"><b>QUESTION 2</b></span>
+                <span class="wheel-label wheel-label-3"><b>QUESTION 3</b></span>
+                <span class="wheel-hub">W<span>F</span></span>
+              </div>
+            </div>
+            <div class="wheel-info"><span class="eyebrow">TRY THE WHEEL</span><h2>THE WHEEL<br><em>IS WAITING.</em></h2><button class="spin-button" id="spin-wheel" type="button"><span id="spin-wheel-text">SPIN THE WHEEL</span><span aria-hidden="true">↻</span></button><p class="spin-result" id="spin-result" role="status" aria-live="polite">Spin for a random preview result</p><small>Preview only · spinning does not change your current mission.</small></div>
+          </div>
+        </details>
+      </section>
+      </div>
+    </main>
+    <footer><span>WHEEL OF FORTUNE © 2026</span><a href="#top">BACK TO TOP ↑</a></footer>
+  </div>
+  <script src="script.js"></script>
+  <script src="dino-pet.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="480" viewBox="0 0 480 480">
+  <defs>
+    <!-- Broad split foliage and long pointed fronds echo the dinosaur illustration. -->
+    <g id="split-leaf" fill="#315c40" fill-opacity=".14">
+      <path d="M0 0C-19 13-57 24-65 49L-12 30-71 64Q-83 80-80 96L-12 57-78 109Q-73 133-58 146L-9 88-48 154Q-25 174-3 170L0 193 4 169Q29 172 49 151L10 88 61 142Q79 124 81 107L13 55 81 91Q83 72 73 58L12 28 62 44Q42 15 0 0Z"/>
+      <path d="M0 12Q9 89 1 185" fill="none" stroke="#315c40" stroke-opacity=".12" stroke-width="2"/>
+      <path d="M-31 62Q-43 76-39 84Q-29 79-23 67ZM30 69Q39 80 37 87Q26 82 23 72Z" fill="#aec5a0"/>
+    </g>
+    <g id="palm" fill="#315c40" fill-opacity=".12">
+      <path d="M0 220Q24 108 0 0" fill="none" stroke="#315c40" stroke-opacity=".12" stroke-width="2"/>
+      <path d="M4 35Q-16 5-54 0Q-31 21 4 35M4 35Q26 5 62 1Q38 24 4 35
+        M7 59Q-26 23-79 20Q-43 48 7 59M7 59Q44 24 90 16Q56 47 7 59
+        M9 88Q-37 49-103 42Q-58 77 9 88M9 88Q54 48 114 34Q72 75 9 88
+        M10 119Q-43 76-125 68Q-71 108 10 119M10 119Q69 74 132 61Q87 102 10 119
+        M8 152Q-56 103-135 99Q-86 137 8 152M8 152Q75 105 138 91Q94 135 8 152
+        M5 185Q-55 140-123 139Q-69 175 5 185M5 185Q68 141 123 129Q85 166 5 185"/>
+    </g>
+  </defs>
+  <use href="#split-leaf" transform="translate(85 55) rotate(-35) scale(1.15)"/>
+  <use href="#palm" transform="translate(320 70) rotate(28)"/>
+  <use href="#split-leaf" transform="translate(325 410) rotate(150) scale(.85)"/>
+  <use href="#palm" transform="translate(70 405) rotate(-120) scale(.6)"/>
+</svg>

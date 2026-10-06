@@ -1,0 +1,12 @@
+# Local archives and generated-artwork notes
+*.zip
+assets/ARTWORK.md
+FRONTEND_REVIEW.md
+
+# Local configuration and dependencies
+.env
+.env.*
+!.env.example
+node_modules/
+.DS_Store
+Thumbs.db

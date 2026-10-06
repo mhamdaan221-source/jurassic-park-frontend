@@ -1,0 +1,55 @@
+/* Original illustrations inspired by the supplied vintage print references. */
+/* Let the headline occupy the open left half of the desktop hero. */
+@media (min-width: 801px) {
+  .hero {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .hero-content {
+    width: 54%;
+    max-width: 1000px;
+  }
+
+  .hero h1 {
+    font-size: clamp(100px, 10vw, 180px);
+    line-height: .88;
+    margin: 24px 0;
+  }
+
+  .hero-content p {
+    max-width: 520px;
+    font-size: 18px;
+  }
+}
+
+.hero-image {
+  transform: none;
+  background:
+    linear-gradient(90deg, #162b20 0%, rgba(22, 43, 32, .92) 38%, rgba(22, 43, 32, 0) 67%),
+    linear-gradient(0deg, rgba(16, 35, 23, .58), transparent 22%),
+    url('assets/prehistoric-hero-copper.png') right center / auto 100% no-repeat #162b20;
+}
+
+.mission-art {
+  background:
+    linear-gradient(90deg, rgba(14, 34, 22, .86) 0%, rgba(14, 34, 22, .61) 45%, rgba(14, 34, 22, .03) 85%),
+    linear-gradient(0deg, rgba(14, 34, 22, .61), transparent 30%),
+    url('assets/raptor-mission-amber.png') center center / cover no-repeat;
+}
+
+@media (max-width: 540px) {
+  .hero-image {
+    background:
+      linear-gradient(90deg, rgba(16, 35, 23, .72), rgba(16, 35, 23, .18)),
+      linear-gradient(0deg, rgba(16, 35, 23, .60), transparent 30%),
+      url('assets/prehistoric-hero-copper.png') 62% top / auto 100% no-repeat #162b20;
+  }
+
+  .mission-art {
+    background:
+      linear-gradient(90deg, rgba(14, 34, 22, .84), rgba(14, 34, 22, .32)),
+      linear-gradient(0deg, rgba(14, 34, 22, .64), transparent 35%),
+      url('assets/raptor-mission-amber.png') 65% center / cover no-repeat;
+  }
+}

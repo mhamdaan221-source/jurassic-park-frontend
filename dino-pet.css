@@ -1,0 +1,51 @@
+/* Illustrated amber sauropod: eight hand-painted poses in a transparent atlas. */
+.bento-grid .wheel-section { position: relative; }
+.bento-grid .wheel-disclosure summary { position: relative; min-height: 200px; padding-right: 46%; }
+.bento-grid .wheel-summary-action { position: absolute; right: 30px; top: 50%; margin-top: -22px; }
+.pet-habitat { position: absolute; z-index: 2; right: 100px; top: 8px; width: 36%; height: 180px; pointer-events: none; }
+.pet-hint { position: absolute; top: 0; left: 0; right: 0; text-align: center; font: 9px/1.5 'Space Mono', monospace; color: #e9dca4; }
+.pet-ground { position: absolute; bottom: 11px; left: 5%; right: 5%; height: 16px; border-radius: 50%; background: radial-gradient(ellipse, #dff4a218, transparent 70%); border-bottom: 1px solid #dff4a225; }
+.dino-pet { position: absolute; bottom: 0; left: 0; width: 156px; height: 156px; border: 0; padding: 0; background: transparent; color: inherit; pointer-events: auto; cursor: pointer; -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+.dino-pet:focus-visible { outline: 2px dashed #e9c967; border-radius: 20px; outline-offset: 1px; }
+.pet-art, .pet-facing, .pet-sprite { display: block; width: 100%; height: 100%; }
+.pet-art { position: relative; }
+.pet-facing { transform: scaleX(var(--pet-direction, 1)); }
+.pet-sprite { background: url('assets/fern-illustrated-poses.png') 0 0 / 400% 200% no-repeat; transform-origin: 50% 88%; filter: drop-shadow(0 3px 2px #071e1740); }
+.pet-affection, .pet-snooze { opacity: 0; position: absolute; z-index: 1; top: 8px; left: 35%; font: 700 16px 'Space Mono', monospace; pointer-events: none; }
+.pet-affection { color: #ffb7a9; }
+.pet-snooze { color: #e9dca4; top: 62px; }
+.pet-egg { display: none; position: absolute; width: 62px; height: 82px; left: 47px; bottom: 16px; border: 2px solid #554422; border-radius: 50% 50% 45% 45% / 65% 65% 35% 35%; background: radial-gradient(ellipse at 28% 35%, #776337 0 5%, transparent 6%), radial-gradient(ellipse at 65% 65%, #a48a52 0 7%, transparent 8%), repeating-linear-gradient(115deg, #0000 0 4px, #45382020 5px 6px), #ecdb9c; box-shadow: inset -8px -5px 0 #7f703a30; transform-origin: center bottom; }
+.dino-pet[data-state="waiting"] .pet-egg { display: block; }
+.dino-pet[data-state="waiting"] .pet-sprite { visibility: hidden; }
+.dino-pet[data-state="hatching"] .pet-sprite { background-position: 100% 100%; animation: fern-emerge 2.8s ease-out both; }
+.dino-pet[data-state="hatching"] .pet-egg { display: block; animation: egg-wiggle .2s 5, egg-reveal .5s 1s forwards; }
+.dino-pet[data-state="idle"] .pet-sprite { animation: fern-breathe 4s ease-in-out infinite; }
+.dino-pet[data-state="walking"] .pet-sprite { animation: fern-walk .7s steps(1, end) infinite; }
+.dino-pet[data-state="curious"] .pet-sprite { background-position: 100% 0; }
+.dino-pet[data-state="happy"] .pet-sprite { background-position: 66.666667% 100%; animation: fern-delight 1.1s ease-in-out 2; }
+.dino-pet[data-state="happy"] .pet-affection { animation: fern-heart 1.1s ease-out 2; }
+.dino-pet[data-state="sleeping"] .pet-sprite { background-position: 0 100%; animation: fern-breathe 4.5s ease-in-out infinite; }
+.dino-pet[data-state="sleeping"] .pet-snooze { animation: fern-heart 2.4s ease-out infinite; }
+.dino-pet[data-state="stretching"] .pet-sprite { background-position: 33.333333% 100%; animation: fern-breathe 2.3s ease-in-out; }
+.pet-pause { position: absolute; bottom: 0; right: 0; pointer-events: auto; width: 25px; height: 25px; border: 1px solid #dff4a240; border-radius: 50%; background: #153d2b; color: #dff4a2; font-size: 12px; padding: 0; }
+.pet-habitat.is-paused * { animation-play-state: paused !important; transition: none !important; }
+@keyframes egg-wiggle { 0%,100% { transform: rotate(-4deg); } 50% { transform: rotate(4deg); } }
+@keyframes egg-reveal { to { transform: translateY(8px); opacity: 0; } }
+@keyframes fern-emerge { 0%,32% { opacity: 0; transform: translateY(10px); } 70%,100% { opacity: 1; transform: none; } }
+@keyframes fern-walk { 0%,100% { background-position: 33.333333% 0; transform: translateY(0); } 50% { background-position: 66.666667% 0; transform: translateY(-1px); } }
+@keyframes fern-breathe { 50% { transform: scaleY(1.015); } }
+@keyframes fern-delight { 40% { transform: translateY(-4px); } }
+@keyframes fern-heart { 0% { opacity: 0; transform: translateY(8px); } 30% { opacity: 1; } 100% { opacity: 0; transform: translateY(-16px); } }
+@media (max-width: 900px) {
+  .bento-grid .wheel-disclosure summary { min-height: 310px; padding: 24px 65px 200px 22px; align-items: flex-start; }
+  .bento-grid .wheel-summary-action { top: 53px; right: 18px; }
+  .pet-habitat { top: 125px; left: 25px; right: 25px; width: auto; height: 170px; }
+  .bento-grid .wheel-summary-copy strong { font-size: clamp(25px, 4vw, 38px); }
+  .bento-grid .wheel-summary-copy .section-index { font-size: 9px; }
+  .bento-grid .wheel-summary-icon { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pet-habitat * { animation: none !important; transition: none !important; }
+  .pet-pause { display: none; }
+  .dino-pet[data-state="happy"] .pet-affection, .dino-pet[data-state="sleeping"] .pet-snooze { opacity: 1; }
+}
