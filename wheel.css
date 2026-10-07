@@ -8,3 +8,31 @@
 .spin-button span:last-child{font-size:25px;line-height:.7}
 .wheel-info .spin-result{min-height:22px;margin:12px 0 10px;color:var(--lime);font:11px/1.5 'Space Mono'}
 @media(prefers-reduced-motion:reduce){.challenge-wheel.is-spinning{transition-duration:.01ms}.wheel-wrap.spinning .wheel-pointer{animation:none}}
+
+/* Reference-inspired mossy stone wheel. The pointer stays outside the rotating disc. */
+.wheel-wrap { width: min(100%, 520px); margin: 20px auto 0; }
+.challenge-wheel {
+  width: 100%; border: 0; border-radius: 0; overflow: visible;
+  background: url('assets/jurassic-stone-wheel.png') center / contain no-repeat;
+  box-shadow: none; filter: drop-shadow(0 16px 16px #071b1466);
+}
+.challenge-wheel::before { display: none; }
+.wheel-pointer {
+  top: -4%; width: 13%; height: 24%; border: 0;
+  background: url('assets/wheel-bone-pointer.svg') center top / contain no-repeat;
+  transform-origin: 50% 18%; filter: drop-shadow(0 3px 3px #0008);
+}
+.wheel-label { width: 32%; color: #15291b; text-shadow: 0 1px 0 #f4f0ca; }
+.wheel-label b {
+  font-size: clamp(16px, 2vw, 24px); letter-spacing: .035em;
+  padding: 4px 8px; border-radius: 5px;
+  background: rgba(238, 233, 191, .85); border: 1px solid #455b3766;
+  box-shadow: 0 2px 5px #14231633;
+}
+.wheel-label-1 { top: 34%; left: 77%; }
+.wheel-label-2 { top: 81%; left: 50%; }
+.wheel-label-3 { top: 34%; left: 23%; }
+@media (max-width: 540px) {
+  .wheel-wrap { width: min(100%, 350px); }
+  .wheel-label b { font-size: 15px; padding: 3px 4px; }
+}

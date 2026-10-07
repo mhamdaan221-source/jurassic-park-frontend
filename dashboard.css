@@ -6,10 +6,10 @@ body::after {
   inset: 0;
   z-index: -2;
   background:
-    radial-gradient(ellipse at 50% 15%, rgba(221, 234, 201, .65), transparent 70%),
-    url('assets/leaf-texture.svg') left top / 460px 460px repeat-y,
-    url('assets/leaf-texture.svg') right 180px / 460px 460px repeat-y,
-    linear-gradient(155deg, #aec5a0, #88a681 70%, #9cb68c);
+    radial-gradient(ellipse at 50% 15%, rgba(221, 234, 201, .42), transparent 70%),
+    linear-gradient(155deg, rgba(174, 197, 160, .48), rgba(136, 166, 129, .45) 70%, rgba(156, 182, 140, .48)),
+    url('assets/sage-moss-texture.png') center top / 760px 760px repeat,
+    #91ad88;
   pointer-events: none;
 }
 main { background: transparent; }
